@@ -9,7 +9,7 @@ const Cards = ({ title, date, vote, imgs, name }) => {
           <div className="flex flex-col bg-gray-300 h-[56vh] w-full text-center items-center">
 
             <div className="w-full h-[45vh] flex">
-              <img loading='lazy' className='w-full h-full ' src={imgs ? `https://image.tmdb.org/t/p/w1280${imgs}` : " src/assets/poster.png"} alt="Not Available " />
+              <img className='w-full h-full ' src={imgs ? `https://image.tmdb.org/t/p/w1280${imgs}` : " src/assets/poster.png"} alt="Not Available " />
             </div>
 
             <div className="text-xl flex justify-center items-center md:h-[8vh] text-center align-middle  w-full font-medium overflow-hidden text-ellipsis ">
