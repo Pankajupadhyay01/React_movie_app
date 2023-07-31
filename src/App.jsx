@@ -4,14 +4,13 @@ const Navbar = lazy(() => import("./Component/Navbar"));
 const Home = lazy(() => import("./Component/Home"));
 const Search = lazy(() => import("./Component/Search"));
 const Trending = lazy(() => import("./Component/Trending"));
-const Contact = lazy(() => import("./Component/Contact"));
-
-
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from 'react-router-dom';
+import Loading from './Component/Loading';
+const Detail = lazy(()=>import('./Component/Detail'));
 
 function App() {
   return (
@@ -20,10 +19,11 @@ function App() {
       <div className="App">
         <Navbar />
         <Routes>
-          <Route exact path='/' element={<Suspense fallback={<p className='flex justify-center items-center m-auto'>Loading...</p>}> <Home /></Suspense>}></Route>
-          <Route exact path='/Search' element={<Suspense fallback={<p className='flex justify-center items-center m-auto'>Loading...</p>}><Search /></Suspense>}></Route>
-          <Route exact path='/trending' element={<Suspense fallback={<p className='flex justify-center items-center m-auto'>Loading...</p>}><Trending /></Suspense>}></Route>
-          <Route exact path='/contact' element={<Suspense fallback={<p className='flex justify-center items-center m-auto'>Loading...</p>}><Contact /></Suspense>}></Route>
+          <Route exact path='/' element={<Suspense fallback={<div className='flex justify-center items-center m-auto'> <Loading/> </div>}> <Home /></Suspense>}></Route>
+          <Route exact path='/Search' element={<Suspense fallback={<div className='flex justify-center items-center m-auto'> <Loading/> </div>}><Search /></Suspense>}></Route>
+          <Route exact path='/trending' element={<Suspense fallback={<div className='flex justify-center items-center m-auto'> <Loading/> </div>}><Trending /></Suspense>}></Route>
+          <Route exact path='/detail/:data' element={<Suspense fallback={<div className='flex justify-center items-center m-auto'> <Loading/> </div>}><Detail /></Suspense>}></Route>
+          
         </Routes>
 
       </div>

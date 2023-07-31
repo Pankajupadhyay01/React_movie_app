@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Cards from './Cards';
+import { Link } from 'react-router-dom';
 
 const Button = () => {
   const [name, setname] = useState("minions");
@@ -28,7 +29,6 @@ const Button = () => {
 
     else {
       const a = e.target.value
-      console.log(a);
       setname(a)
     }
 
@@ -38,14 +38,13 @@ const Button = () => {
     if (page < total) {
       const a = page + 1;
       setpage(a)
-      console.log(page)
-      console.log({total})
     }
-    else{
+    else {
       alert("Oops..! No more Matches available")
     }
+
     window.scrollTo({
-      top: 0, 
+      top: 0,
       behavior: 'smooth'
     });
   }
@@ -57,7 +56,7 @@ const Button = () => {
     }
 
     window.scrollTo({
-      top: 0, 
+      top: 0,
       behavior: 'smooth'
     });
   }
@@ -70,12 +69,15 @@ const Button = () => {
 
         {
           search.map(pro => (
-            <Cards key={pro.id}
-              imgs={pro.poster_path}
-              title={pro.title}
-              name={pro.name}
-              date={pro.release_date}
-              vote={pro.vote_average} />
+            <Link to={"/detail/" + pro.id} className="flex pb-[10px] flex-col flex-wrap justify-center items-center m-auto w-[100%] md:w-[calc(33.33%-10px)] lg:w-[calc(25%-10px)] hover:translate-y-[-3px] " >
+
+              <Cards key={pro.id}
+                imgs={pro.poster_path}
+                title={pro.title}
+                name={pro.name}
+                date={pro.release_date}
+                vote={pro.vote_average} />
+            </Link>
           ))
         }
       </div>

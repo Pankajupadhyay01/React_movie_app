@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import PuffLoader from "react-spinners/PuffLoader";
+import FadeLoader from "react-spinners/FadeLoader";
 
 import Cards from './Cards';
+import { Link } from 'react-router-dom';
 const Home = ({ api }) => {
     const [post, setpost] = useState([]);
     const [page, setpage] = useState(1);
     const [total, settotal] = useState();
-    const [loading, setloading] = useState(true)
-    // Api fetching 
+    const [loading, setloading] = useState(false)
 
     useEffect(() => {
-
+        setloading(true)
         axios.get(`${api}+${page}`)
+
             .then(res => {
                 setpost(res.data.results)
                 setloading(false)
@@ -24,7 +25,7 @@ const Home = ({ api }) => {
 
     }, [page]);
 
-
+    console.log();
     function next() {
         window.scrollTo({
             top: 0,
@@ -57,19 +58,31 @@ const Home = ({ api }) => {
         <>
             {
                 loading ?
-                <div>lomdi..</div>
-                : <div>
+                    <div className='h-[90vh] flex w-[100%] justify-center m-auto'>
+                        <FadeLoader
+                            loading={loading}
+                            size={150}
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                        />
+                    </div>
+                    :
+                    <div>
                         <div className="flex justify-center md:justify-between w-[80%] m-auto items-center p-[20px] flex-wrap">
+
                             {
-                                post.map(pro => (
-                                    <Cards key={pro.id}
-                                        imgs={pro.poster_path}
-                                        title={pro.title}
-                                        name={pro.name}
-                                        date={pro.release_date}
-                                        vote={pro.vote_average} />
+                                post.map((pro,i) => (
+                                    <Link key={i} to={"/detail/" + pro.id} className="flex pb-[10px] flex-col flex-wrap justify-center items-center m-auto w-[100%] md:w-[calc(33.33%-10px)] lg:w-[calc(25%-10px)] hover:translate-y-[-3px] " >
+                                        <Cards
+                                            imgs={pro.poster_path}
+                                            title={pro.title}
+                                            name={pro.name}
+                                            date={pro.release_date}
+                                            vote={pro.vote_average} />
+                                    </Link>
                                 ))
                             }
+
 
                         </div>
 
@@ -77,9 +90,9 @@ const Home = ({ api }) => {
                             <button onClick={pre} className="text-white bg-red-900  text-xl  text-center  items-center justify-center"> <ion-icon name="arrow-back-outline"></ion-icon>Previous </button>
                             <button onClick={next} className="text-white bg-red-900 text-xl text-center  items-center justify-center">Next<ion-icon name="arrow-forward-outline"></ion-icon></button>
                         </div>
-
-
                     </div>
+
+
             }
         </>
 

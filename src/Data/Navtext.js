@@ -11,8 +11,4 @@ export default  [
         name:"Trending",
         link:"/trending"
     },
-    {
-        name:"Contact",
-        link:""
-    },
 ]
