@@ -1,8 +1,10 @@
 <h1 align="center" id="title">React Movie Review App</h1>
 
-<p>The project has three main pages: the Home page, the Trending page, and the Search page. The Home page displays a selection of popular movies, while the Trending page shows movies that are currently trending. The Search page allows users to search for movies by title.
+<p>The project uses the TMDB API to retrieve movie data and displays it in an attractive and easy-to-use interface. The front-end of the application is developed using React and Tailwind CSS, which provides a modern and responsive design. The Axios library is used to fetch data from the TMDB API, ensuring fast and reliable data retrieval.
+  
+The project has three main pages: the Home page, the Trending page, and the Search page. The Home page displays a selection of popular movies, while the Trending page shows movies that are currently trending. The Search page allows users to search for movies by title.
 
-The project uses the TMDB API to retrieve movie data and displays it in an attractive and easy-to-use interface. The front-end of the application is developed using React and Tailwind CSS, which provides a modern and responsive design. The Axios library is used to fetch data from the TMDB API, ensuring fast and reliable data retrieval.</p>
+</p>
 <h2>🚀 Demo</h2>
 
 [Check Out the Project Here](https://reactmovieapp-pankaj.netlify.app//)
