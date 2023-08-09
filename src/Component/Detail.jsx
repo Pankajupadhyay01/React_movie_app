@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import FadeLoader from "react-spinners/FadeLoader";
 
 const Detail = () => {
+  console.log("re-render");
   const [post, setpost] = useState([])
   const [genres, setgenres] = useState([])
   const [loading, setloading] = useState(false)

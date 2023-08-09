@@ -6,10 +6,10 @@ const Cards = ({ title, date, vote, imgs, name }) => {
     <> 
         {/* <div className="flex pb-[10px] flex-col flex-wrap justify-center items-center m-auto w-[100%] md:w-[calc(33.33%-10px)] lg:w-[calc(25%-10px)] hover:translate-y-[-3px] "> */}
 
-          <div className="flex flex-col bg-gray-300 h-[56vh] w-full text-center items-center">
+          <div className="my-[10px] flex flex-col bg-gray-300 w-full text-center items-center">
 
-            <div className="w-full h-[45vh] flex">
-              <img className='w-full h-full ' src={imgs ? `https://image.tmdb.org/t/p/w1280${imgs}` : " src/assets/poster.png"} alt="Not Available " />
+            <div className="w-full flex">
+              <img className='w-full ' src={imgs ? `https://image.tmdb.org/t/p/w1280${imgs}` : " src/assets/poster.png"} alt="Not Available " />
             </div>
 
             <div className="text-xl flex justify-center items-center md:h-[8vh] text-center align-middle  w-full font-medium overflow-hidden text-ellipsis ">
